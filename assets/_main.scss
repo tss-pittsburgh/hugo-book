@@ -2,6 +2,7 @@ html {
   font-size: $font-size-base;
   scroll-behavior: smooth;
   touch-action: manipulation;
+  min-height: 100%;
 }
 
 body {
@@ -19,6 +20,8 @@ body {
   * {
     box-sizing: inherit;
   }
+
+  height: 100vh;
 }
 
 h1,
@@ -76,8 +79,9 @@ ul.pagination {
 }
 
 .container {
-  max-width: $container-max-width;
-  margin: 0 auto;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 100%;
 }
 
 .book-icon {
@@ -93,18 +97,24 @@ ul.pagination {
     vertical-align: middle;
     margin-inline-end: $padding-8;
   }
+
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: rgb(0, 0, 0);
+  word-break: keep-all;
 }
 
 .book-menu {
-  flex: 0 0 $menu-width;
-  font-size: $font-size-14;
+  flex: 1 0 $menu-width;
+  // font-size: $font-size-14;
 
   .book-menu-content {
     width: $menu-width;
     padding: $padding-16;
-    background: var(--body-background);
+    // background: var(--body-background);
+    float: right;
 
-    @include fixed;
+    // @include fixed;
   }
 
   a,
@@ -146,8 +156,10 @@ ul.pagination {
 }
 
 .book-page {
-  min-width: $body-min-width;
-  flex-grow: 1;
+    min-width: $body-min-width;
+    max-width: $container-max-width - 32;
+
+  flex-grow: 1000;
   padding: $padding-16;
 }
 
@@ -206,7 +218,7 @@ ul.pagination {
 }
 
 .book-toc {
-  flex: 0 0 $toc-width;
+  flex: 1 0 $toc-width;
   font-size: $font-size-12;
 
   .book-toc-content {
