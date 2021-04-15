@@ -1,0 +1,20 @@
+
+
+{{- if or (.PrevInSection) (.NextInSection) }}
+<nav class="pager flex">
+  {{- if .NextInSection }}
+  <div class="flex-even text-left">
+	<a href="{{ .NextInSection.RelPermalink }}">
+	  «&thinsp; {{ .NextInSection.Title }}
+	</a>
+  </div>
+  {{- end }}
+  {{- if .PrevInSection }}
+  <div class="flex-even text-right">
+	<a href="{{ .PrevInSection.RelPermalink }}">
+	  {{ .PrevInSection.Title }} &thinsp;» 
+	</a>
+  </div>
+  {{- end }}
+</nav>
+{{- end }}
