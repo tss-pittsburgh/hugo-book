@@ -14,11 +14,11 @@
 		line-height: 1.65;
 
 		@include breakpoint('<=xlarge') {
-			font-size: 11pt;
+			font-size: 13pt;
 		}
 
 		@include breakpoint('<=large') {
-			font-size: 10pt;
+			font-size: 14pt;
 		}
 
 		@include breakpoint('<=xxsmall') {
@@ -31,14 +31,15 @@
 			'color #{_duration(transition)} ease-in-out',
 			'border-bottom-color #{_duration(transition)} ease-in-out'
 		));
-		border-bottom: dotted 1px;
+		border-bottom: solid 1px;
 		color: _palette(accent);
 		text-decoration: none;
 
 		&:hover {
 			border-bottom-color: _palette(accent);
-			color: _palette(accent) !important;
-
+            color: #0356D6 !important;
+            text-decoration: none;
+            background: #E9F2FF;
 			strong {
 				color: inherit;
 			}
@@ -73,7 +74,7 @@
 	}
 
 	h1 {
-		font-size: 4em;
+		font-size: 2.5em;
 		margin: 0 0 (_size(element-margin) * 0.25) 0;
 		line-height: 1.3;
 	}

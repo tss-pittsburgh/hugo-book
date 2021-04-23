@@ -20,14 +20,15 @@
 
 			a, span {
 				border-bottom: 0;
-				color: inherit;
+				color: _palette(fg);
 				cursor: pointer;
 				display: block;
 				font-size: 1em;
 				padding: 0.4em 0;
 
 				&:hover {
-					color: _palette(accent);
+					color: _palette(fg);
+                    text-decoration: underline; background: none;
 				}
 
 				&.opener {
@@ -69,17 +70,18 @@
 		> ul {
 			> li {
 				border-top: solid 1px _palette(border);
-				margin: 0.5em 0 0 0;
-				padding: 0.5em 0 0 0;
+                margin: .25em 0 0;
+                padding: .25em 0 0;
 
 				> ul {
-					color: _palette(fg-light);
+					color: _palette(fg);
 					// display: none;
 					margin: 0.5em 0 1.5em 0;
-					padding-left: 1em;
+					padding-left: 0;
 
 					a, span {
-						font-size: 0.8em;
+						font-size: 0.85em;
+                        padding: 0;
 					}
 
 					> li {
