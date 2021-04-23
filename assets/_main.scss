@@ -51,13 +51,13 @@ aside nav ul {
   list-style: none;
 
   li {
-    margin: 1em 0;
+    margin: 0;
     position: relative;
   }
 
   a {
     display: inline-block;
-    margin: .5em 0;
+    margin: .2em 0;
   }
 
   a:hover {
@@ -230,7 +230,7 @@ ul.pagination {
     width: auto;
     padding: $padding-16;
 
-    @include fixed;
+    // @include fixed;
   }
 
   img {
