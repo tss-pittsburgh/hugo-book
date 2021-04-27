@@ -228,9 +228,8 @@ ul.pagination {
   .book-toc-content {
       // width: $toc-width;
     width: auto;
-    padding: $padding-16;
-
-    // @include fixed;
+    padding: $padding-16;    
+    @include fixed;
   }
 
   img {
