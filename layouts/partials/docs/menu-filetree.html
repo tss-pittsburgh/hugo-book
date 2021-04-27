@@ -4,7 +4,7 @@
 {{ end }}
 
 {{ with .Site.GetPage $bookSection }}
-  {{ template "book-section-children" (dict "Section" . "CurrentPage" $) }}
+  {{ template "book-section-children" (dict "Section" . "CurrentPage" $ "feedbackLink" .Site.Params.feedbackLink ) }}
 {{ end }}
 
 {{ define "book-section-children" }}{{/* (dict "Section" .Section "CurrentPage" .CurrentPage) */}}
@@ -21,6 +21,7 @@
         </li>
       {{ end }}
     {{ end }}
+    <li><a href="{{ .feedbackLink }}">意見回饋</a></li>
   </ul>
 {{ end }}
 
