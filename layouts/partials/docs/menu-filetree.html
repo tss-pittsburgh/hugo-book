@@ -21,7 +21,9 @@
         </li>
       {{ end }}
     {{ end }}
-    <li><a href="{{ .feedbackLink }}">意見回饋</a></li>
+    {{ if .feedbackLink }}
+        <li><a href="{{ .feedbackLink }}">意見回饋</a></li>
+    {{ end }}
   </ul>
 {{ end }}
 
