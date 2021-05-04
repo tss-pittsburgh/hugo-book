@@ -328,7 +328,6 @@ ul.pagination {
   #toc-control {
     display: inline;
   }
-
   .book-menu {
     visibility: hidden;
     margin-inline-start: -$menu-width;
@@ -356,6 +355,7 @@ ul.pagination {
     .book-menu .book-menu-content {
       transform: translateX($menu-width);
       box-shadow: 0 0 $padding-8 rgba(0, 0, 0, 0.1);
+      background: #f5f6f7;
     }
 
     .book-page {
