@@ -296,7 +296,7 @@ If you are using `config.yaml` or `config.json`, consult the [configuration mark
 
 ### Referral-Links
 
-This short code is to a referral link whose target URL is selected randomly.
+This short code is to show a referral link whose target URL is selected randomly.
 
 For example, to show the referral links for credict cards "Discover it" and "Discover Edu", one can use the following snippet:
 
@@ -325,6 +325,31 @@ The appearance of the above snippets will be:
 - [Discover edu]()
 
 and the target URL will be the one selected from the list randomly.
+
+
+### Invite-Code
+
+This short code is to show a invite code selected randomly from a list.
+
+For example, to show the invite code for "Uber Eats":
+
+```
+- Uber: {{<invite-code program="Uber-Eats">}}
+```
+
+and then list the referral links in `data/InviteCode.toml` (relative to the root of the project, instead of this theme):
+
+```toml
+[Uber-Eats]
+"甲"="eats-xxx"
+"乙"="eats-ooo"
+```
+
+The appearance of the above snippets will be simiar to:
+
+- Uber: `eats-xxx`
+
+where the code is randomly selected from the list.
 
 
 ## Versioning

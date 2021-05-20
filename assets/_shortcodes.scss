@@ -105,4 +105,12 @@
   .referral-links a {
       display: none;
   }
+
+  .invite-code span {
+      display: none;
+      font-family: mono;
+      background-color: #FEFEFE;
+      padding: 0.2em;
+      border: 1px solid #DDD;
+  }
 }

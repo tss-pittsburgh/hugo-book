@@ -30,8 +30,11 @@
 <script defer src="{{ $swJS.RelPermalink }}" integrity="{{ $swJS.Data.Integrity }}"></script>
 {{ end -}}
 
-{{- $referralLinksJS := resources.Get "referral-links.js"  | resources.Fingerprint }}
+{{- $referralLinksJS := resources.Get "referral-links.js" | resources.Fingerprint }}
 <script defer src="{{ $referralLinksJS.RelPermalink }}" integrity="{{ $referralLinksJS.Data.Integrity }}"></script>
+
+{{- $inviteCodeJS := resources.Get "invite-code.js" | resources.Fingerprint }}
+<script defer src="{{ $inviteCodeJS.RelPermalink }}" integrity="{{ $inviteCodeJS.Data.Integrity }}"></script>
 
 
 {{- template "_internal/google_analytics_async.html" . -}}

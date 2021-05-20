@@ -1,0 +1,5 @@
+<span class="invite-code">
+  {{ range $owner, $code := (index $.Site.Data.InviteCode (.Get "program")) -}}
+  <span>{{ $code }}</span>
+  {{- end }}
+</span>
