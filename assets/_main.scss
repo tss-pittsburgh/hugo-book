@@ -396,7 +396,7 @@ ul.pagination {
 }
 
 // Extra space for big screens
-@media screen and (min-width: $container-max-width) {
+@media screen and (min-width: $container-max-width + 10) {
     // .book-page,
     // .book-menu .book-menu-content,
     // .book-toc .book-toc-content {
