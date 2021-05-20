@@ -324,6 +324,10 @@ ul.pagination {
 }
 
 @media screen and (max-width: $mobile-breakpoint) {
+  .book-page {
+    max-width: unset;
+  }
+
   #menu-control,
   #toc-control {
     display: inline;
@@ -370,6 +374,7 @@ ul.pagination {
       left: 0;
       right: 0;
     }
+
   }
 
   #toc-control:focus ~ main label[for="toc-control"] {
@@ -400,7 +405,6 @@ ul.pagination {
     // }
     .book-page {
         padding: 3rem 3rem 2rem 6rem;
-        max-width: unset;
     }
   .book-menu .book-menu-content, .book-toc .book-toc-content{padding: 2rem 3rem;}
   .book-toc .book-toc-content {padding: 3rem 1rem 2rem 3rem;}
