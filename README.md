@@ -292,6 +292,41 @@ By default, Goldmark trims unsafe outputs which might prevent some shortcodes fr
 
 If you are using `config.yaml` or `config.json`, consult the [configuration markup](https://gohugo.io/getting-started/configuration-markup/)
 
+## Shortcodes Customized for TSS
+
+### Referral-Links
+
+This short code is to a referral link whose target URL is selected randomly.
+
+For example, to show the referral links for credict cards "Discover it" and "Discover Edu", one can use the following snippet:
+
+```
+- {{<referral-links text="Discover it" program="CredictCard-DiscoverIt">}}
+- {{<referral-links text="Discover edu" program="CredictCard-DiscoverEdu">}}
+```
+
+and then list the referral links in `data/ReferralLinks.toml` (relative to the root of the project, instead of this theme):
+
+```toml
+[CredictCard-DiscoverIt]
+"甲"="https://refer.discover.com/s/A"
+"乙"="https://refer.discover.com/s/B"
+"丙"="https://refer.discover.com/s/C"
+"丁"="https://refer.discover.com/s/D"
+"戊"="https://refer.discover.com/s/E"
+
+[CredictCard-DiscoverEdu]
+"己"="http://deserve.com/F"
+```
+
+The appearance of the above snippets will be:
+
+- [Discover it]()
+- [Discover edu]()
+
+and the target URL will be the one selected from the list randomly.
+
+
 ## Versioning
 
 This theme follows a simple incremental versioning. e.g. `v1`, `v2` and so on. There might be breaking changes between versions.
