@@ -392,13 +392,16 @@ ul.pagination {
 
 // Extra space for big screens
 @media screen and (min-width: $container-max-width) {
-  // .book-page,
-  // .book-menu .book-menu-content,
-  // .book-toc .book-toc-content {
-  //     // padding: $padding-16 * 2 $padding-16;
-  //     padding: 3rem 1rem 2rem 3rem;
-  // }
-  .book-page {padding: 3rem 3rem 2rem 6rem;}
+    // .book-page,
+    // .book-menu .book-menu-content,
+    // .book-toc .book-toc-content {
+    //     // padding: $padding-16 * 2 $padding-16;
+    //     padding: 3rem 1rem 2rem 3rem;
+    // }
+    .book-page {
+        padding: 3rem 3rem 2rem 6rem;
+        max-width: unset;
+    }
   .book-menu .book-menu-content, .book-toc .book-toc-content{padding: 2rem 3rem;}
   .book-toc .book-toc-content {padding: 3rem 1rem 2rem 3rem;}
 }
