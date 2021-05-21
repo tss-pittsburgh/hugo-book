@@ -11,14 +11,13 @@
   translation: Expand
 
 - id: bookSearchConfig
-  translation: '{ cache: true }'
-
-- id: bookSearchConfig
-  translation: |
+  translation: |    
     {
-      encode: false,
+      cache: true,
       tokenize: function(str) {
-        return str.replace(/[\x00-\x7F]/g, '').split('');
+        let en = str.replace(/[^\x00-\x7F]/g, ' ').split(' ');
+        let zh = str.replace(/[\x00-\x7F]/g, '').split('');
+        return en.concat(zh);
       }
     }
   
