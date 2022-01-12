@@ -130,6 +130,19 @@
   ol {
     padding-inline-start: $padding-16 * 2;
   }
+  
+  p + ul {
+      margin-top: -1.5em;
+  }
+  
+  p + ol {
+      margin-top: -1em;
+  }
+  
+  li {
+      margin-bottom: 1em;
+  }
+  
 
   dl {
     dt {
