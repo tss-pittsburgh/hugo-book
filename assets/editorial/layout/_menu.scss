@@ -18,13 +18,16 @@
 			padding: 0;
 			text-transform: uppercase;
 
-			a, span {
+			label::after {
+				padding: 0.4em 0;
+			}
+			a{
 				border-bottom: 0;
 				color: _palette(fg);
 				cursor: pointer;
 				display: block;
-				font-size: 1em;
 				padding: 0.4em 0;
+
 
 				&:hover {
 					color: _palette(fg);

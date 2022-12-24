@@ -55,7 +55,7 @@ aside nav ul {
     position: relative;
   }
 
-  a {
+  a, label::after {
     display: inline-block;
     margin: .2em 0;
   }
@@ -106,9 +106,9 @@ ul.pagination {
   word-break: keep-all;
 }
 
-.book-menu {
-  flex: 1 0 $menu-width;
-  // font-size: $font-size-14;
+.book-menu{
+  flex: 0 0 $menu-width;
+  font-size: 1em;
 
   .book-menu-content {
     width: auto;
@@ -242,8 +242,7 @@ body[dir="rtl"] .book-menu {
 }
 
 .book-toc {
-  flex: 1 0 $toc-width;
-  // font-size: $font-size-12;
+  flex: 0 0 $toc-width;
   font-size: 1rem;
 
   .book-toc-content {
@@ -301,6 +300,12 @@ body[dir="rtl"] .book-menu {
   transition: 0.2s ease-in-out;
   transition-property: transform, margin, opacity, visibility;
   will-change: transform, margin, opacity;
+}
+
+@media screen and (min-width: $mobile-breakpoint) {
+  main.container {
+    max-width: 1311.6px;
+  }
 }
 
 @media screen and (max-width: $mobile-breakpoint) {
