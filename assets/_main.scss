@@ -2,6 +2,7 @@ html {
   font-size: $font-size-base;
   scroll-behavior: smooth;
   touch-action: manipulation;
+  min-height: 100%;
 }
 
 body {
@@ -19,6 +20,8 @@ body {
   * {
     box-sizing: inherit;
   }
+
+  height: 100vh;
 }
 
 h1,
@@ -48,16 +51,17 @@ aside nav ul {
   list-style: none;
 
   li {
-    margin: 1em 0;
+    margin: 0;
     position: relative;
   }
 
-  a {
-    display: block;
+  a, label::after {
+    display: inline-block;
+    margin: .2em 0;
   }
 
   a:hover {
-    opacity: 0.5;
+    opacity: 1;
   }
 
   ul {
@@ -69,6 +73,7 @@ ul.pagination {
   display: flex;
   justify-content: center;
   list-style-type: none;
+  padding-inline-start: 0px;
 
   .page-item a {
     padding: $padding-16;
@@ -76,8 +81,9 @@ ul.pagination {
 }
 
 .container {
-  max-width: $container-max-width;
-  margin: 0 auto;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 100%;
 }
 
 .book-icon {
@@ -86,25 +92,31 @@ ul.pagination {
 
 .book-brand {
   margin-top: 0;
+  margin-bottom: $padding-16;
 
   img {
     height: 1.5em;
-    width: auto;
-    vertical-align: middle;
+    width: 1.5em;
     margin-inline-end: $padding-8;
   }
+
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: rgb(0, 0, 0);
+  word-break: keep-all;
 }
 
-.book-menu {
+.book-menu{
   flex: 0 0 $menu-width;
-  font-size: $font-size-14;
+  font-size: 1em;
 
   .book-menu-content {
-    width: $menu-width;
+    width: auto;
     padding: $padding-16;
-    background: var(--body-background);
+    // background: var(--body-background);
+    float: right;
 
-    @include fixed;
+    // @include fixed;
   }
 
   a,
@@ -125,14 +137,29 @@ ul.pagination {
   input.toggle:checked + label + ul {
     display: block;
   }
+
+  input.toggle + label::after {
+    content: "▸";
+  }
+
+  input.toggle:checked + label::after {
+    content: "▾";
+  }
+}
+
+// for RTL support
+body[dir="rtl"] .book-menu {
+  input.toggle + label::after {
+    content: "◂";
+  }
+
+  input.toggle:checked + label::after {
+    content: "▾";
+  }
 }
 
 .book-section-flat {
-  margin-bottom: $padding-16 * 2;
-
-  &:not(:first-child) {
-    margin-top: $padding-16 * 2;
-  }
+  margin: $padding-16 * 2 0;
 
   > a,
   > span,
@@ -146,9 +173,12 @@ ul.pagination {
 }
 
 .book-page {
-  min-width: $body-min-width;
-  flex-grow: 1;
-  padding: $padding-16;
+    min-width: $body-min-width;
+    max-width: $container-max-width - 32;
+
+  flex-grow: 1000;
+  // padding: $padding-16;
+  padding: 1rem;
 }
 
 .book-post {
@@ -157,10 +187,16 @@ ul.pagination {
 
 .book-header {
   display: none;
-  margin-bottom: $padding-16;
-
+  // margin-bottom: $padding-16;
+  margin-bottom: 2rem;
+  
   label {
     line-height: 0;
+  }
+
+  img.book-icon {
+    height: 1.5em;
+    width: 1.5em;
   }
 }
 
@@ -207,17 +243,18 @@ ul.pagination {
 
 .book-toc {
   flex: 0 0 $toc-width;
-  font-size: $font-size-12;
+  font-size: 1rem;
 
   .book-toc-content {
-    width: $toc-width;
-    padding: $padding-16;
-
+      // width: $toc-width;
+    width: auto;
+    padding: $padding-16;    
     @include fixed;
   }
 
   img {
     height: 1em;
+    width: 1em;
   }
 
   nav > ul > li:first-child {
@@ -231,6 +268,7 @@ ul.pagination {
 
   img {
     height: 1em;
+    width: 1em;
     margin-inline-end: $padding-8;
   }
 }
@@ -240,60 +278,17 @@ ul.pagination {
 }
 
 .book-languages {
-  position: relative;
-  overflow: visible;
+  margin-block-end: $padding-16 * 2;
 
-  padding: $padding-16;
-  margin: -$padding-16;
+  .book-icon {
+    height: 1em;
+    width: 1em;
+    margin-inline-end: .5em;
+  }
 
   ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-
-    li {
-      white-space: nowrap;
-      cursor: pointer;
-    }
+    padding-inline-start: 1.5em;
   }
-
-  &:hover,
-  &:focus,
-  &:focus-within {
-    .book-languages-list {
-      display: block;
-    }
-  }
-
-  .book-languages-list {
-    display: none;
-
-    position: absolute;
-    bottom: 100%;
-    left: 0;
-    padding: $padding-8 0;
-
-    background: var(--body-background);
-    box-shadow: 0 0 $padding-4 rgba(0, 0, 0, 0.1);
-
-    li img {
-      opacity: 0.25;
-    }
-
-    li.active img,
-    li:hover img {
-      opacity: initial;
-    }
-
-    a {
-      color: inherit;
-      padding: $padding-8 $padding-16;
-    }
-  }
-}
-
-.book-home {
-  padding: $padding-16;
 }
 
 // Responsive styles
@@ -307,12 +302,21 @@ ul.pagination {
   will-change: transform, margin, opacity;
 }
 
+@media screen and (min-width: $mobile-breakpoint) {
+  main.container {
+    max-width: 1311.6px;
+  }
+}
+
 @media screen and (max-width: $mobile-breakpoint) {
+  .book-page {
+    max-width: unset;
+  }
+
   #menu-control,
   #toc-control {
     display: inline;
   }
-
   .book-menu {
     visibility: hidden;
     margin-inline-start: -$menu-width;
@@ -340,6 +344,7 @@ ul.pagination {
     .book-menu .book-menu-content {
       transform: translateX($menu-width);
       box-shadow: 0 0 $padding-8 rgba(0, 0, 0, 0.1);
+      background: #f5f6f7;
     }
 
     .book-page {
@@ -354,6 +359,7 @@ ul.pagination {
       left: 0;
       right: 0;
     }
+
   }
 
   #toc-control:focus ~ main label[for="toc-control"] {
@@ -366,8 +372,8 @@ ul.pagination {
     }
   }
 
-  //for RTL support
-  body[dir="rtl"] #menu-control:checked + main {
+  // for RTL support
+  body[dir="rtl"] #menu-control:checked ~ main {
     .book-menu .book-menu-content {
       transform: translateX(-$menu-width);
     }
@@ -375,10 +381,16 @@ ul.pagination {
 }
 
 // Extra space for big screens
-@media screen and (min-width: $container-max-width) {
-  .book-page,
-  .book-menu .book-menu-content,
-  .book-toc .book-toc-content {
-    padding: $padding-16 * 2 $padding-16;
-  }
+@media screen and (min-width: $container-max-width + 10) {
+    // .book-page,
+    // .book-menu .book-menu-content,
+    // .book-toc .book-toc-content {
+    //     // padding: $padding-16 * 2 $padding-16;
+    //     padding: 3rem 1rem 2rem 3rem;
+    // }
+    .book-page {
+        padding: 3rem 3rem 2rem 6rem;
+    }
+  .book-menu .book-menu-content, .book-toc .book-toc-content{padding: 2rem 3rem;}
+  .book-toc .book-toc-content {padding: 3rem 1rem 2rem 3rem;}
 }

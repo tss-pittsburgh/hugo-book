@@ -1,0 +1,5 @@
+<span class="referral-links">
+  {{ range $owner, $link := (index $.Site.Data.ReferralLinks (.Get "program")) -}}
+  <a href='{{ $link }}' target="_blank">{{ $.Get "text" }}</a>
+  {{- end }}
+</span>
